@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def show
@@ -23,12 +24,14 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user.update(params[:user])
+    redirect_to @user
   end
 
-  def destroy
-    @user.destroy
-    redirect_to users_path
-  end
+  # def destroy
+  #   @user.destroy
+  #   redirect_to users_path
+  # end
 
   # def profile
   #   @users = User.where(username: params[:username])
