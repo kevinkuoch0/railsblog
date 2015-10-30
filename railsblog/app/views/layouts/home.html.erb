@@ -10,26 +10,13 @@
 
   <%= csrf_meta_tags %>
 </head>
+
+
 <body>
-	<div class="container">
-		<ul class="nav nav-tabs pull-right">
 
-			<li>
-				<%= link_to "Home", root_path %>
-			</li>
+<%= yield %>
 
-			<li>
-				<%= link_to "Profiles", users_path %>
-			</li>
-
-
-			<li>
-				<%= link_to "Posts", users_path %>
-			</li>
-		</ul>
-
-		<%= yield %>
-	</div>
+<div class="footer">
+</div>
 
 </body>
-</html>
