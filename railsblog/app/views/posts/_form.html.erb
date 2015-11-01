@@ -1,0 +1,10 @@
+<%= form_for @post do |p| %>
+
+	<%= p.label :body, 'Post:' %>
+	<%= p.text_area :body, :maxlength => 150, rows: 10, cols: 30 %>
+	<br />
+	<br />
+	
+	<%= p.submit %>
+
+<% end %>

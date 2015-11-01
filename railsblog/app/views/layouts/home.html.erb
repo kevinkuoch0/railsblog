@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Microblog</title>
+  <title>Snapper Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "application.css" %>
@@ -14,9 +14,21 @@
 
 <body>
 
+<div class="header">
+
 <%= yield %>
 
+</div>
+
+<div class="wrapper">
+
+<%= flash[:notice] if flash[:notice] %>
+<%= flash[:alert] if flash[:alert] %>
+
+</div>
+
 <div class="footer">
+
 </div>
 
 </body>

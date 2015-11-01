@@ -1,0 +1,13 @@
+<%= link_to "Create post", new_post_path %>
+<br />
+<br />
+
+<ul>
+
+	<% @recent.each do |post| %>
+
+	<li>
+	<%= post.body %>
+	</li>
+	<% end %>
+</ul>

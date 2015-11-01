@@ -11,25 +11,67 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<div class="header">
 	<div class="container">
-		<ul class="nav nav-tabs pull-right">
+		<% if current_user %>
+			<h3>Hello <%= current_user.fname %> </h3>
+		<% else %>
+			<%= nil %>
+		<% end %>
+			<ul class="nav nav-tabs pull-right">
 
-			<li>
-				<%= link_to "Home", root_path %>
-			</li>
+				<li>
+					<%= link_to "Home", users_path %>
+				</li>
 
-			<li>
-				<%= link_to "Profiles", users_path %>
-			</li>
+				<li>
+					<% if session[:id] != nil %>
+						<%= link_to "My Profile", user_path(current_user.id) %>
+					<% else %>
+						<%= link_to "Sign Up", new_user_path %>
+					<% end %>
 
 
-			<li>
-				<%= link_to "Posts", users_path %>
-			</li>
-		</ul>
+				</li>
+
+				<li>
+					<%= link_to "Feed", posts_path %>
+				</li>
+
+				<li>
+					<%= link_to "Friends", posts_path %>
+				</li>
+
+				<li>
+				<%= link_to "Sign Out", signout_path, method: :delete %>
+				</li>
+
+			</ul>
+	</div>
+</div>
+
+
+<div class="wrapper">
+
+<%= flash[:notice] if flash[:notice] %>
+<%= flash[:alert] if flash[:alert] %>
+
+	<div class="container">
 
 		<%= yield %>
-	</div>
+
+		</div>
+
+</div>
+
+
+<div class="footer">
+
+
+</div>
 
 </body>
+
+
 </html>

@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
 	end
 
 	def new
@@ -13,15 +12,16 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = User.find(params[:id])
 	end
 
 	def destroy
-		@user = User.find(params[:id]).destroy
-			if @user.destroy
-				flash[:notice] = "User was deleted!"
-			end
-		redirect_to users_path
+		if session[:id] == @user.id
+		   	session[:id] = nil
+			@user = User.find(params[:id]).destroy
+			redirect_to users_path, notice: "User was deleted!"
+		else
+			redirect_to users_path, notice: "User cannot be deleted."
+		end
 	end
 
 	def update

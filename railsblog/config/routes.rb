@@ -2,13 +2,12 @@ Rails.application.routes.draw do
 
   root 'home#homepage'
 
-  get "/users/sign_in" => "sessions#new"
-  
   resources :users
   resources :posts
   resources :comments
 
-  
+  post '/signin', to: 'sessions#login'
+  delete '/signout', to: 'sessions#logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -18,6 +17,8 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+
+  get ':username', to: 'users#profile', as: 'user_profile'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
