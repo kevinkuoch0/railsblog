@@ -21,3 +21,9 @@ html,body{
 	background-color: white;
 }
 
+.btn-signup{
+	position: absolute;
+    bottom: 0;
+    right: 50%;
+
+}

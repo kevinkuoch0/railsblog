@@ -1,8 +1,16 @@
 <h1><%= @user.fname %> <%= @user.lname %></h1>
 
-<h1><%= @user.lname %></h1>
+<% @users.each do |user| %>
+    
 
-<h1><%= @user.username %></h1>
+      <% if user.username != current_user.username %>
+        <%= user.username %>
+        <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+        <%= link_to 'Remove friend', friendship_path(:friend_id => user), :method => :destroy %>
+      <% end %>
+    <br />
+    
+ <% end %>
 
 <ul>
 <% @user.posts.each do |userpost| %>
