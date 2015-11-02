@@ -1,9 +1,9 @@
-<%= link_to "Create post", new_post_path %>
+
 <br />
 <br />
 
 <ul>
-
+	<h3> Last 10 Posts By All Users </h3>
 	<% @recent.each do |post| %>
 
 	<li>
@@ -11,3 +11,5 @@
 	</li>
 	<% end %>
 </ul>
+
+<%= link_to "Create post", new_post_path %>

@@ -25,7 +25,17 @@
 			<ul class="nav nav-tabs pull-right">
 
 				<li>
-					<%= link_to "Home", users_path %>
+					<% if session[:id] != nil %>
+						<%= link_to "Home", users_path %>
+					<% else %>
+						<%= link_to "Home", root_path %>
+					<% end %>
+
+
+				</li>
+
+				<li>
+					<%= link_to "User List", users_path %>
 				</li>
 
 				<li>
