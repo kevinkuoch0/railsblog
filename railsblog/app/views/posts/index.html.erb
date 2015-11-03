@@ -1,15 +1,12 @@
-
-<br />
-<br />
-
 <ul>
-	<h3> Last 10 Posts By All Users </h3>
+	<h3> Last 10 Posts From Friends </h3>
 	<% @recent.each do |post| %>
-
-	<li>
-	<%= post.body %>
-	</li>
+		<li>
+		<%= post.body %>
+		</li>
 	<% end %>
 </ul>
 
 <%= link_to "Create post", new_post_path %>
+<br />
+<%= link_to "Go Back", users_path %>

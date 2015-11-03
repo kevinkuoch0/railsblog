@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :users 
   resources :posts
   resources :comments
-  resources :friendships
+
+  post '/users/:id/follow', to: 'users#follow', as:'follow_user'
+
+  delete '/users/:id/unfollow', to: 'users#unfollow', as:'unfollow_user'
+
 
   post '/signin', to: 'sessions#login'
   delete '/signout', to: 'sessions#logout'

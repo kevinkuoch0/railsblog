@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-	before_action :set_user, only: [:edit, :update, :show, :destroy]
+	before_action :set_user, only: [:edit, :update, :show, :destroy, :follow, :unfollow]
 	def index
 		@users = User.all
 	end
 
 	def show
 		@users = User.all
-		@user = current_user
 	end
 
 	def new
@@ -40,6 +39,16 @@ class UsersController < ApplicationController
 
 		end
 			redirect_to users_path
+	end
+
+	def follow
+		Follow.create(followee_id: params[:id], follower_id: current_user.id)
+		redirect_to @user, notice: "Followed!"
+	end
+
+	def unfollow
+		Follow.where(followee_id: params[:id], follower_id: current_user.id).first.destroy
+		redirect_to @user, notice: "Unfollowed!"
 	end
 
 	private

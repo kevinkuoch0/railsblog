@@ -1,15 +1,16 @@
 html,body{
-
 }
 
-
-.navbar navbar-default navbar-fixed-top {
-	background-color: white;
-}
 
 .wrapper{
 	background-color: #44526A;
 	height: 700px;
+	color: #D3D3D3;
+
+}
+
+.nav-tabs > li > a{
+	color: black;
 }
 
 .footer {
@@ -27,3 +28,24 @@ html,body{
     right: 45%;
 
 }
+
+.carousel-inner img{
+	width: 100%;
+}
+
+
+a:link{
+	color: #D3D3D3;
+}
+
+a:visited {
+    color: #D3D3D3;
+ }
+
+a:hover {
+    color: #D3D3D3;
+ }
+
+ a:active {
+    color: #D3D3D3;
+ }
